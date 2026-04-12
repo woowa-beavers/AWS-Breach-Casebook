@@ -1,7 +1,4 @@
-﻿README 안에 백틱()이 있어서 here-string이 꼬이는 거예요. 파일을 직접 생성하는 방식으로 바꿀게요.
-powershell# 이미 만든 .gitignore는 OK, README부터 다시
- = @"
-# AWS Breach Casebook
+﻿# AWS Breach Casebook
 
 > AWS 환경에서 발생한 실제 보안 침해 사례 아카이브 (2014-2025)
 
