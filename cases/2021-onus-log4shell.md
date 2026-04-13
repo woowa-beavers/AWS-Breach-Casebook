@@ -12,8 +12,8 @@ attacker_type: Unknown
 records_exposed: "약 200만 명"
 financial_impact: "500만 달러(약 60억 원) 랜섬 요구 (지불 거절)"
 ref:
-  - "[CyStack, The attack on ONUS – A real-life case of the Log4Shell vulnerability](https://cystack.net/vi/research/the-attack-on-onus-a-real-life-case-of-the-log4shell-vulnerability)"
-  - "[BleepingComputer, Fintech firm hit by Log4j hack refuses to pay $5 million ransom](https://www.bleepingcomputer.com/news/security/fintech-firm-hit-by-log4j-hack-refuses-to-pay-5-million-ransom/)"
+  - "[CyStack, The attack on ONUS – A real-life case of the Log4Shell vulnerability]"
+  - "[BleepingComputer, Fintech firm hit by Log4j hack refuses to pay $5 million ransom]"
 ---
 
 ## 개요
