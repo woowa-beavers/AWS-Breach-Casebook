@@ -13,6 +13,11 @@ def fail(msg):
 for root, _, files in os.walk("cases"):
     for file in files:
         if file.endswith(".md"):
+
+        
+            if "TEMPLATE" in file.upper():
+                continue
+
             path = os.path.join(root, file)
 
             with open(path, encoding="utf-8") as f:
