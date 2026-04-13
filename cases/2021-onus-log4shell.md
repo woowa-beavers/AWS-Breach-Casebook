@@ -5,7 +5,7 @@ date: 2021-12-11
 cause_type: IAM_ESCALATION
 services: [IAM, S3, EC2]
 severity: Critical
-attacker_type: Unknown (해킹 포럼 'vndcio' 계정 사용자)
+attacker_type: Unknown
 records_exposed: 약 200만 명
 financial_impact: 500만 달러(약 60억 원) 랜섬 요구 (지불 거절)
 ref:
