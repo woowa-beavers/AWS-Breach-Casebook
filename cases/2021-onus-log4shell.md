@@ -9,12 +9,11 @@ services:
   - EC2
 severity: Critical
 attacker_type: Unknown
-records_exposed: 약 200만 명
-financial_impact: 500만 달러(약 60억 원) 랜섬 요구 (지불 거절)
+records_exposed: "약 200만 명"
+financial_impact: "500만 달러(약 60억 원) 랜섬 요구 (지불 거절)"
 ref:
-
-  - [CyStack, The attack on ONUS – A real-life case of the Log4Shell vulnerability](https://cystack.net/vi/research/the-attack-on-onus-a-real-life-case-of-the-log4shell-vulnerability)
-  - [BleepingComputer, Fintech firm hit by Log4j hack refuses to pay $5 million ransom](https://www.bleepingcomputer.com/news/security/fintech-firm-hit-by-log4j-hack-refuses-to-pay-5-million-ransom/)
+  - "[CyStack, The attack on ONUS – A real-life case of the Log4Shell vulnerability](https://cystack.net/vi/research/the-attack-on-onus-a-real-life-case-of-the-log4shell-vulnerability)"
+  - "[BleepingComputer, Fintech firm hit by Log4j hack refuses to pay $5 million ransom](https://www.bleepingcomputer.com/news/security/fintech-firm-hit-by-log4j-hack-refuses-to-pay-5-million-ransom/)"
 ---
 
 ## 개요
@@ -72,7 +71,7 @@ ref:
 | **Discovery (탐색)** | T1619 | Cloud Storage Object Discovery | 확보한 권한으로 프로덕션 S3 버킷을 스캔하여 타깃 데이터(고객 DB, KYC 비디오 등) 위치 파악 |
 | **Collection (수집)** | T1530 | Data from Cloud Storage | S3 버킷 내 200만 명의 개인정보, 거래 기록, E-KYC 파일(신분증 사본 등) 수집 |
 | **Exfiltration (유출)** | T1567.002 | Exfiltration Over Web Service: Exfiltration to Cloud Storage | 수집된 막대한 양의 클라우드 스토리지 데이터를 공격자가 통제하는 외부 인프라로 다운로드 |
-| **Impact (영향)** | T1485 | Data Destruction | 데이터 유출 후 랜섬(500만 달러) 협박을 위해 \*\*S3 원본 데이터를 삭제(파괴)\*\*하여 서비스 장애 유발 |
+| **Impact (영향)** | T1485 | Data Destruction | 데이터 유출 후 랜섬(500만 달러) 협박을 위해 **S3 원본 데이터를 삭제(파괴)**하여 서비스 장애 유발 |
 
 ## 교훈 및 완화 방안
 
