@@ -3,7 +3,10 @@ title: "베트남 핀테크(암호화폐 거래소) 플랫폼 ONUS의 Log4Shell 
 year: 2021
 date: 2021-12-11
 cause_type: IAM_ESCALATION
-services: [IAM, S3, EC2]
+services:
+  - IAM
+  - S3
+  - EC2
 severity: Critical
 attacker_type: Unknown
 records_exposed: 약 200만 명
