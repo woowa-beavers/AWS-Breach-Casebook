@@ -2,7 +2,7 @@
 title: 'Kaspersky 서드파티 AWS SES 토큰 탈취 및 피싱 악용 사고 분석'
 year: 2021
 date: 2021-11-01
-cause_type: CREDENTIAL_EXPOSURE
+cause_type: CRED_EXPOSURE
 services:
   - IAM
   - SES
