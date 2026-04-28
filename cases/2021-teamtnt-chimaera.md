@@ -2,7 +2,7 @@
 title: 'TeamTNT Chimaera 캠페인: 클라우드 자격 증명 대량 탈취 및 자원 착취 사고 분석'
 year: 2021
 date: 2021-02-10
-cause_type: MISCONFIG_EXPOSURE
+cause_type: CRED_EXPOSURE
 services:
   - IAM
   - EC2
@@ -60,23 +60,22 @@ ref:
 
 ## MITRE ATT&CK
 
-| Tactic (전술) | Technique ID | Technique Name (기법명) | Procedure (구체적 행위) |
-| :--- | :--- | :--- | :--- |
-| **Initial Access**<br>(초기 접근) | T1190 | Exploit Public-Facing Application | 외부에 인증 없이 노출된 Docker API(2375 등) 및 Kubernetes 환경 악용 |
-| | T1078.004 | Valid Accounts: Cloud Accounts | 사전에 탈취한 클라우드 IAM 자격 증명 및 서버 계정을 사용하여 무단 접속 |
-| **Execution**<br>(실행) | T1059.004 | Command and Scripting Interpreter: Unix Shell | 초기 침투 후 악성 Bash/Shell 스크립트 실행 (리눅스 및 컨테이너 환경) |
-| **Defense Evasion**<br>(방어 회피) | T1070.003 | Indicator Removal: Clear Command History | bash history를 조작하여 명령어 기록 자체를 남기지 않거나 무력화 |
-| | T1562.001 | Impair Defenses: Disable or Modify Tools | 감염된 컴퓨터에서 Aegis Authenticator, Quartz 및 Alibaba 서비스 등 보안 제품을 비활성화하거나 제거 |
-| **Credential Access**<br>(자격 증명 접근) | T1552.001 | Unsecured Credentials: Credentials In Files | `~/.aws/credentials`, `s3cfg` 등 평문으로 저장된 클라우드 키 대량 스크래핑 |
-| | T1555 | Credentials from Password Stores | Lazagne 등 도구를 활용해 브라우저 및 시스템 앱에 저장된 비밀번호 덤프 |
-| | T1552.005 | Unsecured Credentials: Cloud Instance Metadata API | 클라우드 인스턴스 메타데이터 서비스(IMDS)에 접근하여 임시 IAM 액세스 토큰 및 GitHub 토큰 등 탈취 |
-| **Lateral Movement**<br>(측면 이동) | T1021.004 | Remote Services: SSH | 탈취한 SSH 개인 키를 활용해 내부망 내 다른 클라우드 인스턴스로 수평 확산 |
-| | T1210 | Exploitation of Remote Services | 내부 네트워크에서 다른 취약한 Docker/Kubernetes 노드의 API를 타겟으로 원격 서비스 악용 및 감염 전파 |
-| **Command and Control**<br>(지휘 및 통제) | T1105 | Ingress Tool Transfer | 외부 C&C 서버로부터 Chimaera 툴킷, 크리덴셜 스틸러(Lazagne), 암호화폐 채굴기(XMRig) 등 대량의 악성 도구를 다운로드 |
-| | T1071.001 | Application Layer Protocol: Web Protocols | 감염된 클라우드 인프라를 IRC 봇넷에 편입시켜 통신하고 공격자의 추가 명령 대기 |
-| **Exfiltration**<br>(유출) | T1041 | Exfiltration Over C2 Channel | 탈취한 막대한 양의 클라우드 자격 증명과 구성 데이터를 C&C 서버 채널을 통해 전송 |
-| **Impact**<br>(영향) | T1496 | Resource Hijacking | 장악한 클라우드 컴퓨팅 자원(CPU/메모리)을 무단으로 점유하여 모네로(Monero) 암호화폐 채굴 |
-
+| Tactic (전술)                             | Technique ID | Technique Name (기법명)                            | Procedure (구체적 행위)                                                                                            |
+| :---------------------------------------- | :----------- | :------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------- |
+| **Initial Access**<br>(초기 접근)         | T1190        | Exploit Public-Facing Application                  | 외부에 인증 없이 노출된 Docker API(2375 등) 및 Kubernetes 환경 악용                                                |
+|                                           | T1078.004    | Valid Accounts: Cloud Accounts                     | 사전에 탈취한 클라우드 IAM 자격 증명 및 서버 계정을 사용하여 무단 접속                                             |
+| **Execution**<br>(실행)                   | T1059.004    | Command and Scripting Interpreter: Unix Shell      | 초기 침투 후 악성 Bash/Shell 스크립트 실행 (리눅스 및 컨테이너 환경)                                               |
+| **Defense Evasion**<br>(방어 회피)        | T1070.003    | Indicator Removal: Clear Command History           | bash history를 조작하여 명령어 기록 자체를 남기지 않거나 무력화                                                    |
+|                                           | T1562.001    | Impair Defenses: Disable or Modify Tools           | 감염된 컴퓨터에서 Aegis Authenticator, Quartz 및 Alibaba 서비스 등 보안 제품을 비활성화하거나 제거                 |
+| **Credential Access**<br>(자격 증명 접근) | T1552.001    | Unsecured Credentials: Credentials In Files        | `~/.aws/credentials`, `s3cfg` 등 평문으로 저장된 클라우드 키 대량 스크래핑                                         |
+|                                           | T1555        | Credentials from Password Stores                   | Lazagne 등 도구를 활용해 브라우저 및 시스템 앱에 저장된 비밀번호 덤프                                              |
+|                                           | T1552.005    | Unsecured Credentials: Cloud Instance Metadata API | 클라우드 인스턴스 메타데이터 서비스(IMDS)에 접근하여 임시 IAM 액세스 토큰 및 GitHub 토큰 등 탈취                   |
+| **Lateral Movement**<br>(측면 이동)       | T1021.004    | Remote Services: SSH                               | 탈취한 SSH 개인 키를 활용해 내부망 내 다른 클라우드 인스턴스로 수평 확산                                           |
+|                                           | T1210        | Exploitation of Remote Services                    | 내부 네트워크에서 다른 취약한 Docker/Kubernetes 노드의 API를 타겟으로 원격 서비스 악용 및 감염 전파                |
+| **Command and Control**<br>(지휘 및 통제) | T1105        | Ingress Tool Transfer                              | 외부 C&C 서버로부터 Chimaera 툴킷, 크리덴셜 스틸러(Lazagne), 암호화폐 채굴기(XMRig) 등 대량의 악성 도구를 다운로드 |
+|                                           | T1071.001    | Application Layer Protocol: Web Protocols          | 감염된 클라우드 인프라를 IRC 봇넷에 편입시켜 통신하고 공격자의 추가 명령 대기                                      |
+| **Exfiltration**<br>(유출)                | T1041        | Exfiltration Over C2 Channel                       | 탈취한 막대한 양의 클라우드 자격 증명과 구성 데이터를 C&C 서버 채널을 통해 전송                                    |
+| **Impact**<br>(영향)                      | T1496        | Resource Hijacking                                 | 장악한 클라우드 컴퓨팅 자원(CPU/메모리)을 무단으로 점유하여 모네로(Monero) 암호화폐 채굴                           |
 
 ## 교훈 및 완화 방안
 
