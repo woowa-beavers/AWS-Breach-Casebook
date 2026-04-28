@@ -1,7 +1,7 @@
 ---
 title: 'TeamTNT Chimaera 캠페인: 클라우드 자격 증명 대량 탈취 및 자원 착취 사고 분석'
 year: 2021
-date: 2021-07-01
+date: 2021-02-10
 cause_type: MISCONFIG_EXPOSURE
 services:
   - IAM
