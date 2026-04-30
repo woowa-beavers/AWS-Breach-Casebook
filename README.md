@@ -75,13 +75,21 @@ records_exposed: 106000000
 
 </div>
 
+<div align="center">
+
 전체 분류 기준 → [`taxonomy/cause-types.md`](taxonomy/cause-types.md)
+
+</div>
 
 ---
 
 ## 📊 데이터 스키마
 
+<div align="center">
+
 `data/breach_master.xlsx` — 전체 사례를 스프레드시트로 관리합니다.
+
+</div>
 
 <div align="center">
 
